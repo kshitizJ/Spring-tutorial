@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- This is our beans or metadata -->
+
+	<bean class="com.springcore.reference.B" name="bref">
+		<property name="y" value="90" />
+	</bean>
+
+	<!-- 1st method -->
+	<bean class="com.springcore.reference.A" name="aref">
+		<property name="x" value="21" />
+
+
+		<!-- 1st method -->
+		<!-- <property name="ob"> <ref bean="bref" /> </property> -->
+
+		<!-- 2nd method -->
+		<property name="ob" ref="bref" />
+
+	</bean>
+
+	<!-- 2nd method -->
+	<bean class="com.springcore.reference.A" name="aref1" p:x="33"
+		p:ob-ref="bref" />
+	<!-- ob-ref, 'ob' is the name of the object and 'ref' is used to tell that 
+		it is refering to another bean -->
+
+</beans>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<!-- This is our beans or metadata -->
+
+	<bean class="com.springcore.autoWire.Address" name="address">
+		<property name="street" value="Jain Mandir"></property>
+		<property name="city" value="Thane"></property>
+	</bean>
+
+
+	<!-- byName will search the bean name which is the variable name in the 
+		Emp class i.e 'address' -->
+	<!-- <bean class="com.springcore.autoWire.Emp" name="employee" autowire="byName" 
+		/> -->
+
+
+	<!-- byType will search the bean's type which is the variable type in the 
+		Emp class i.e Address but this will only work when there is only one bean 
+		of type Address -->
+	<!-- <bean class="com.springcore.autoWire.Emp" name="employee" autowire="byType"></bean> -->
+
+
+	<!-- constructor will check the constructor of the Emp class and see the 
+		type of the address, then it will check the name of the Address object which 
+		is 'address' and then it will match the bean's name with that name -->
+	<bean class="com.springcore.autoWire.Emp" name="employee"
+		autowire="constructor" />
+
+
+</beans>

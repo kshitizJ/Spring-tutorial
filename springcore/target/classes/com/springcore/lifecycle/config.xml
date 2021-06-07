@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- This is our beans or metadata -->
+
+	<!-- To enable all the annotations used in the spring framework use the 
+		following line -->
+
+	<context:annotation-config></context:annotation-config>
+
+	<!-- lifecycle method -->
+	<!-- <bean class="com.springcore.lifecycle.Samosa" name="s1" init-method="init" 
+		destroy-method="destroy"> <property name="price" value="10" /> </bean> -->
+
+
+	<!-- we are implemeting init and destroy method from the interfaces in Pepsi 
+		class -->
+	<!-- <bean class="com.springcore.lifecycle.Pepsi" name="p1"> <property name="price"> 
+		<value>50</value> </property> </bean> -->
+
+	<bean class="com.springcore.lifecycle.Example" name="ex">
+		<property name="subject" value="Computer" />
+	</bean>
+
+
+</beans>
