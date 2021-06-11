@@ -3,13 +3,41 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context
-http://www.springframework.org/schema/context/spring-context.xsd">
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util.xsd">
 
 	<!-- This is our beans or metadata -->
 
-	
+
+	<!-- standalone list -->
+
+	<!-- in list-class we tell the util list which class do we have to use, 
+		here we are using linked list and not array list -->
+	<util:list list-class="java.util.LinkedList" id="bestfriends">
+		<value>Nidhi Singh</value>
+		<value>Pratham Doshi</value>
+	</util:list>
+
+
+	<!-- standalone Map -->
+	<util:map map-class="java.util.HashMap" id="feestructure">
+		<entry key="Spring Framework" value="700" />
+		<entry key="Django Framework" value="650" />
+		<entry key="React Framework" value="600" />
+		<entry key="Angular Framework" value="650" />
+	</util:map>
+
+	<bean class="com.springcore.standalone.collections.Person"
+		name="person">
+		<property name="friends">
+			<ref bean="bestfriends" />
+		</property>
+		<property name="feeStructureMap" ref="feestructure"></property>
+	</bean>
 
 </beans>
